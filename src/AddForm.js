@@ -1,8 +1,5 @@
 import React, {useState} from "react";
 
-
-
-
 function AddForm({addNewSpot}) {
     const [photo, setPhoto] = useState("")
     const [name, setName] = useState("");
@@ -36,8 +33,17 @@ function AddForm({addNewSpot}) {
             transition: transition,
             style: style,
         }
-        console.log(newSpotObj)
+        fetch("http://localhost:3000/spots", {
+            method: 'POST',
+            headers: {
+                'Content-type' : 'application/json',
+            },
+            body: JSON.stringify(newSpotObj)
+        })
+            .then((resp) => resp.json())
+            .then((newSpotObj) => {
         addNewSpot(newSpotObj)
+        })
     }
 
 
