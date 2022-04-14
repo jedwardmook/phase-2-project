@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 
 
-function AddForm() {
+function AddForm({addNewSpot}) {
     const [photo, setPhoto] = useState("")
     const [name, setName] = useState("");
     const [address, setAddress]= useState("");
@@ -18,8 +18,33 @@ function AddForm() {
     const [transition, setTransition]= useState(false)
     const [style, setStyle]= useState("street")
 
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const newSpotObj= {
+            spotImage: photo,
+            spotName: name,
+            spotAddress: address,
+            spotArea: area,
+            slappyCurb: slappyCurb,
+            stair: stairs,
+            ledge: ledge,
+            flatGround: flatGround,
+            manualPad: manualPad,
+            flatBar: flatBar,
+            gap: gap,
+            transition: transition,
+            style: style,
+        }
+        console.log(newSpotObj)
+        addNewSpot(newSpotObj)
+    }
+
+
+
     return (
         <div>
+            <form onSubmit={handleSubmit}>
              <input 
                 type="text" 
                 value={photo} 
@@ -85,6 +110,7 @@ function AddForm() {
             d.i.y.<br/>
             </div>
             <button>submit</button>
+           </form>
         </div>
 
     )
