@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import AddForm from './AddForm';
+import Filter from './Filter';
 import SpotContainer from './SpotContainer';
 
 function App() {
@@ -22,7 +23,10 @@ function App() {
   return (
     <div className="App">
       <h1>This is the App component.</h1>
-      <SpotContainer />
+      <Filter />
+      <SpotContainer 
+        spots={spots}
+        />
       <AddForm 
         addNewSpot={addNewSpot}
         />

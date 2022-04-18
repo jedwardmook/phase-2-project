@@ -1,11 +1,18 @@
 import React from "react";
 import Spot from "./Spot";
 
-function SpotContainer() {
+function SpotContainer({spots}) {
+
+    
+    
     return (
         <div>
-            I am the spot container
-            <Spot />
+            {spots.map((spot,id) =>{
+                return  <Spot
+                    spot={spot}
+                    key={id}
+                    />
+                })}
         </div>
     )
 }
