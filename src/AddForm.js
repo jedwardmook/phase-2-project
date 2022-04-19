@@ -50,7 +50,7 @@ function AddForm({addNewSpot}) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form id="add-form" onSubmit={handleSubmit}>
              <input 
                 type="text" 
                 value={photo} 

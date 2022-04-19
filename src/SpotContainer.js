@@ -1,14 +1,12 @@
 import React from "react";
-import Spot from "./Spot";
+import SpotCard from "./SpotCard";
 
-function SpotContainer({spots}) {
+function SpotContainer({filteredSpots}) {
 
-    
-    
     return (
-        <div>
-            {spots.map((spot,id) =>{
-                return  <Spot
+        <div id="spot-container">
+            {filteredSpots.map((spot,id) =>{
+                return  <SpotCard
                     spot={spot}
                     key={id}
                     />
