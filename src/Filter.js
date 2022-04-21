@@ -3,8 +3,9 @@ import React from "react";
 function Filter({selectedArea, filterSelectedArea}){
 
     return (
-        <div>
-            <p>Where do you want to skate? </p>
+        <div id="filter">
+            <hr />
+            <h3>Where do you want to skate? </h3>
             <select 
                 name="Chicago Area" 
                 id="Chicago Area"

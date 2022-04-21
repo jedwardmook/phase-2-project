@@ -3,17 +3,19 @@ import { Route } from "react-router-dom";
 import AddForm from './AddForm';
 import Filter from './Filter';
 import Header from './Header';
+import Spot from './Spot';
 import SpotContainer from './SpotContainer';
 
 function App() {
   const [spots, setSpots] = useState([])
   const [selectedArea, setSelectedArea] = useState('All')
-  
+  const [clickedSpot, setClickedSpot] = useState({})
+
+
   useEffect(() => {
     fetch("http://localhost:3000/spots")
     .then(resp => resp.json())
     .then(spotData => {
-      console.log(spotData)
       setSpots(spotData)
     })
   }, [])
@@ -25,13 +27,13 @@ function App() {
 
   const filterSelectedArea = (e) => {
     setSelectedArea(e.target.value)
-    console.log(e.target.value)
   }
 
+
   const filteredSpots = spots.filter(spot => {
-    if(selectedArea === 'All')
+    if (selectedArea === 'All') 
       return spots
-    else 
+    else
       return spot.spotArea === selectedArea
   })
 
@@ -50,6 +52,10 @@ function App() {
         />
       <SpotContainer 
         filteredSpots={filteredSpots}
+        setClickedSpot={setClickedSpot}
+        />
+      <Spot path='/spot'
+        clickedSpot={clickedSpot}
         />
       </Route>
     </div>

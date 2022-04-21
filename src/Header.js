@@ -17,6 +17,7 @@ function Header() {
 
     return (
         <div>
+          <h1>Spot Check-Chicago</h1>
           <NavLink
             to="/"
             exact

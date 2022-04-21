@@ -13,6 +13,9 @@ function AddForm({addNewSpot}) {
     const [flatBar, setFlatBar]= useState(false)
     const [gap, setGap]= useState(false)
     const [transition, setTransition]= useState(false)
+    const [handrail, setHandrail]= useState(false)
+    const [wallride, setWallride]= useState(false)
+    const [description, setDescription] = useState('')
     const [style, setStyle]= useState("street")
 
 
@@ -31,6 +34,9 @@ function AddForm({addNewSpot}) {
             flatBar: flatBar,
             gap: gap,
             transition: transition,
+            handrail: handrail,
+            wallride: wallride,
+            description: description,
             style: style,
         }
         fetch("http://localhost:3000/spots", {
@@ -86,16 +92,25 @@ function AddForm({addNewSpot}) {
                 <option value="Far Southwest Side">Far Southwest Side</option>
                 <option value="Far Southeast Side">Far Southeast Side</option>
             </select><br/>
+            <p>Spot description:</p>
+            <textarea
+                type="text" 
+                value={description} 
+                placeholder="Description"
+                onChange={(e) => setDescription(e.target.value)}
+                /><br/>
             <p>Spot has:(select any)</p>
             <div>
             <input type="checkbox" onChange={(e) => setSlappyCurb(!slappyCurb)} checked={slappyCurb} value="slappy curb"/>slappy curb
             <input type="checkbox" onChange={(e) => setStairs(!stairs)} checked={stairs} value="stairs"/>stairs
             <input type="checkbox" onChange={(e) => setLedge(!ledge)} checked={ledge} value="ledge"/>ledge
-            <input type="checkbox" onChange={(e) => setFlatGround(!flatGround)} checked={flatGround} value="flat ground"/>flat ground<br/>
-            <input type="checkbox" onChange={(e) => setManualPad(!manualPad)} checked={manualPad} value="manual pad"/>manual pad
+            <input type="checkbox" onChange={(e) => setFlatGround(!flatGround)} checked={flatGround} value="flat ground"/>flat ground
+            <input type="checkbox" onChange={(e) => setManualPad(!manualPad)} checked={manualPad} value="manual pad"/>manual pad<br/>
             <input type="checkbox" onChange={(e) => setFlatBar(!flatBar)} checked={flatBar} value="flat bar"/>flat bar
             <input type="checkbox" onChange={(e) => setGap(!gap)} checked={gap} value="gap"/>gap
-            <input type="checkbox" onChange={(e) => setTransition(!transition)} checked={transition} value="transition"/>transition<br/>
+            <input type="checkbox" onChange={(e) => setTransition(!transition)} checked={transition} value="transition"/>transition
+            <input type="checkbox" onChange={(e) => setHandrail(!handrail)} checked={handrail} value="handrail"/>handrail
+            <input type="checkbox" onChange={(e) => setWallride(!wallride)} checked={wallride} value="wallride"/>wallride<br/>
             </div>
             <p>Spot style:</p>
             <div>
