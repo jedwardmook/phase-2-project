@@ -11,10 +11,10 @@ function SpotContainer({filteredSpots, setClickedSpot}) {
 
     const spotsToDisplay = filteredSpots.map((spot,id) => {
         return  <SpotCard
-            spot={spot}
-            key={id}
-            handleClickedSpot={handleClickedSpot}
-            />
+                    spot={spot}
+                    key={id}
+                    handleClickedSpot={handleClickedSpot}
+                />
     })
     
 

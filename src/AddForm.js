@@ -1,55 +1,93 @@
 import React, {useState} from "react";
 
 function AddForm({addNewSpot}) {
-    const [photo, setPhoto] = useState("")
-    const [name, setName] = useState("");
-    const [address, setAddress]= useState("");
-    const [area, setArea]= useState("choose...");
-    const [slappyCurb, setSlappyCurb]= useState(false);
-    const [stairs, setStairs]= useState(false)
-    const [ledge, setLedge]= useState(false)
-    const [flatGround, setFlatGround]= useState(false)
-    const [manualPad, setManualPad]= useState(false)
-    const [flatBar, setFlatBar]= useState(false)
-    const [gap, setGap]= useState(false)
-    const [transition, setTransition]= useState(false)
-    const [handrail, setHandrail]= useState(false)
-    const [wallride, setWallride]= useState(false)
-    const [description, setDescription] = useState('')
-    const [style, setStyle]= useState("street")
+    // const [photo, setPhoto] = useState("")
+    // const [name, setName] = useState("");
+    // const [address, setAddress]= useState("");
+    // const [area, setArea]= useState("choose...");
+    // const [slappyCurb, setSlappyCurb]= useState(false);
+    // const [stairs, setStairs]= useState(false)
+    // const [ledge, setLedge]= useState(false)
+    // const [flatGround, setFlatGround]= useState(false)
+    // const [manualPad, setManualPad]= useState(false)
+    // const [flatBar, setFlatBar]= useState(false)
+    // const [gap, setGap]= useState(false)
+    // const [transition, setTransition]= useState(false)
+    // const [handrail, setHandrail]= useState(false)
+    // const [wallride, setWallride]= useState(false)
+    // const [description, setDescription] = useState('')
+    // const [style, setStyle]= useState("street")
+       const [spotData, setSpotData] = useState({
+            spotImage: '',
+            spotName: '',
+            spotAddress: '',
+            spotArea:'choose...',
+            attribute: {
+                slappyCurb: false,
+                stairs: false,
+                ledge: false,
+                flatGround: false,
+                manualPad: false,
+                flatBar: false,
+                gap: false,
+                transition: false,
+                handrail: false,
+                wallride: false,
+            },
+            description: '',
+            style: 'street',
+        })
+    
+    function handleChange(e){
+        const name = e.target.name;
+        let value = e.target.value;
 
+        if (e.target.type === "checkbox"){
+            value = e.target.checked
+        }
+
+    setSpotData({
+            ...spotData,
+            [name]: value,
+            spotData: {
+                ...spotData.attribute,
+                [name]:value,
+                }
+            })
+    }
 
     function handleSubmit(e){
         e.preventDefault()
-        const newSpotObj= {
-            spotImage: photo,
-            spotName: name,
-            spotAddress: address,
-            spotArea: area,
-            slappyCurb: slappyCurb,
-            stair: stairs,
-            ledge: ledge,
-            flatGround: flatGround,
-            manualPad: manualPad,
-            flatBar: flatBar,
-            gap: gap,
-            transition: transition,
-            handrail: handrail,
-            wallride: wallride,
-            description: description,
-            style: style,
-        }
-        fetch("http://localhost:3000/spots", {
-            method: 'POST',
-            headers: {
-                'Content-type' : 'application/json',
-            },
-            body: JSON.stringify(newSpotObj)
-        })
-            .then((resp) => resp.json())
-            .then((newSpotObj) => {
-        addNewSpot(newSpotObj)
-        })
+        console.log(spotData)
+    //     const newSpotObj= {
+    //         spotImage: photo,
+    //         spotName: name,
+    //         spotAddress: address,
+    //         spotArea: area,
+    //         slappyCurb: slappyCurb,
+    //         stair: stairs,
+    //         ledge: ledge,
+    //         flatGround: flatGround,
+    //         manualPad: manualPad,
+    //         flatBar: flatBar,
+    //         gap: gap,
+    //         transition: transition,
+    //         handrail: handrail,
+    //         wallride: wallride,
+    //         description: description,
+    //         style: style,
+    //     }
+        // fetch("http://localhost:3000/spots", {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-type' : 'application/json',
+        //     },
+        //     body: JSON.stringify(newSpotObj)
+        // })
+        //     .then((resp) => resp.json())
+        //     .then((newSpotObj) => {
+        // addNewSpot(newSpotObj)
+        // })
     }
 
 
@@ -57,30 +95,37 @@ function AddForm({addNewSpot}) {
     return (
         <div>
             <form id="add-form" onSubmit={handleSubmit}>
+            <h3 id="title">Add Spot</h3>
              <input 
+                id="photo-input"
+                name="spotImage"
                 type="text" 
-                value={photo} 
+                value={spotData.spotImage} 
                 placeholder="Add Photo URL"
-                onChange={(e) => setPhoto(e.target.value)}
+                onChange={handleChange}
                 /><br/>
             <input 
-                type="text" 
-                value={name} 
+                id="name-input"
+                type="text"
+                name="spotName"
+                value={spotData.spotName} 
                 placeholder="Name"
-                onChange={(e) => setName(e.target.value)}
+                onChange={handleChange}
                 /><br/>
             <input 
+                id="address-input"
                 type="text" 
-                value={address} 
+                name="spotAddress"
+                value={spotData.spotAddress} 
                 placeholder="Address"
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={handleChange}
                 /><br/>
-            <label for="Chicago Area">Chicago Area: </label>
+            <p id="form-area">Chicago area: </p>
             <select 
-                value={area} 
-                name="Chicago Area" 
-                id="Chicago Area"
-                onChange={(e) => setArea(e.target.value)}>
+                value={spotData.spotArea} 
+                name="spotArea" 
+                id="form-dropdown"
+                onChange={handleChange}>
                 <option value="choose...">choose...</option>
                 <option value="Far North Side">Far North Side</option>
                 <option value="Northwest Side">Northwest Side</option>
@@ -92,45 +137,61 @@ function AddForm({addNewSpot}) {
                 <option value="Far Southwest Side">Far Southwest Side</option>
                 <option value="Far Southeast Side">Far Southeast Side</option>
             </select><br/>
-            <p>Spot description:</p>
+            <p id="form-description">Spot description:</p>
             <textarea
-                type="text" 
-                value={description} 
+                id="form-textarea"
+                type="text"
+                name="description"
+                value={spotData.description} 
                 placeholder="Description"
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={handleChange}
                 /><br/>
-            <p>Spot has:(select any)</p>
-            <div>
-            <input type="checkbox" onChange={(e) => setSlappyCurb(!slappyCurb)} checked={slappyCurb} value="slappy curb"/>slappy curb
-            <input type="checkbox" onChange={(e) => setStairs(!stairs)} checked={stairs} value="stairs"/>stairs
-            <input type="checkbox" onChange={(e) => setLedge(!ledge)} checked={ledge} value="ledge"/>ledge
-            <input type="checkbox" onChange={(e) => setFlatGround(!flatGround)} checked={flatGround} value="flat ground"/>flat ground
-            <input type="checkbox" onChange={(e) => setManualPad(!manualPad)} checked={manualPad} value="manual pad"/>manual pad<br/>
-            <input type="checkbox" onChange={(e) => setFlatBar(!flatBar)} checked={flatBar} value="flat bar"/>flat bar
-            <input type="checkbox" onChange={(e) => setGap(!gap)} checked={gap} value="gap"/>gap
-            <input type="checkbox" onChange={(e) => setTransition(!transition)} checked={transition} value="transition"/>transition
-            <input type="checkbox" onChange={(e) => setHandrail(!handrail)} checked={handrail} value="handrail"/>handrail
-            <input type="checkbox" onChange={(e) => setWallride(!wallride)} checked={wallride} value="wallride"/>wallride<br/>
+            <p id="form-attributes">Spot has:(select any)</p>
+            <div id="attribute-container">
+                <input id="attribute-check" type="checkbox" name="slappyCurb" onChange={handleChange} checked={spotData.attribute.slappyCurb} value="slappy curb"/>slappy curb
+                <input id="attribute-check" type="checkbox" name="stairs" onChange={handleChange} checked={spotData.attribute.stairs} value="stairs"/>stairs
+                <input id="attribute-check" type="checkbox" name="ledge" onChange={handleChange} checked={spotData.attribute.ledge} value="ledge"/>ledge
+                <input id="attribute-check" type="checkbox" name="flatGround" onChange={handleChange} checked={spotData.attribute.flatGround} value="flat ground"/>flat ground
+                <input id="attribute-check" type="checkbox" name="gap" onChange={handleChange} checked={spotData.attribute.gap} value="gap"/>gap
+                <br/>
+                <input id="attribute-check" type="checkbox" name="flatBar" onChange={handleChange} checked={spotData.attribute.flatBar} value="flat bar"/>flat bar
+                <input id="attribute-check" type="checkbox" name="manualPad" onChange={handleChange} checked={spotData.attribute.manualPad} value="manual pad"/>manual pad
+                <input id="attribute-check" type="checkbox" name="transition" onChange={handleChange} checked={spotData.attribute.transition} value="transition"/>transition
+                <input id="attribute-check" type="checkbox" name="handrail" onChange={handleChange} checked={spotData.attribute.handrail} value="handrail"/>handrail
+                <input id="attribute-check" type="checkbox" name="wallride" onChange={handleChange} checked={spotData.attribute.wallride} value="wallride"/>wallride
+                <br/>
             </div>
-            <p>Spot style:</p>
-            <div>
-            <input type="radio" 
-                checked={style === "street"} 
-                onChange={(e) => setStyle(e.target.value)}
-                value="street"/>
-            street
-            <input type="radio" 
-                checked={style === "park"}
-                onChange={(e) => setStyle(e.target.value)}
-                value="park"/>
-            park
-            <input type="radio" 
-                checked={style === "DIY"}
-                onChange={(e) => setStyle(e.target.value)} 
-                value="DIY"/>
-            d.i.y.<br/>
+            <p id="form-style">Spot style:</p>
+            <div id="style-container">
+                <input type="radio" 
+                id="style-radio"
+                name="style"
+                checked={spotData.style === "street"} 
+                onChange={handleChange}
+                value="street"
+                />
+                    street
+                <input type="radio"
+                id="style-radio"
+                name="style"
+                checked={spotData.style === "park"}
+                onChange={handleChange}
+                value="park"
+                />
+                    park
+                <input type="radio" 
+                id="style-radio"
+                name="style"
+                checked={spotData.style === "DIY"}
+                onChange={handleChange}
+                value="DIY" 
+                />
+                    DIY
+                <br/>
             </div>
-            <button>submit</button>
+            <div id="form-button">
+                <button id="spot-submit">Submit</button>
+            </div>
            </form>
         </div>
 

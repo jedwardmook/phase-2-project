@@ -5,7 +5,7 @@ function Spot({clickedSpot}){
         gap, ledge, manualPad, slappyCurb, stair, handrail, wallride, transition} = clickedSpot
 
     return (
-       <div>
+       <div id="spot">
            <img src={spotImage} alt={spotName} />
            <h1>{spotName}</h1>
            <h3>{spotAddress}</h3>

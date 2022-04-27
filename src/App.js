@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddForm from './AddForm';
 import Filter from './Filter';
 import Header from './Header';
@@ -9,6 +9,7 @@ import SpotContainer from './SpotContainer';
 function App() {
   const [spots, setSpots] = useState([])
   const [selectedArea, setSelectedArea] = useState('All')
+  const [selectedAttribute, setSelectedAttribute] = useState('Anything')
   const [clickedSpot, setClickedSpot] = useState({})
 
 
@@ -29,6 +30,10 @@ function App() {
     setSelectedArea(e.target.value)
   }
 
+  const filterSelectedAttribute = (e) =>{
+    setSelectedAttribute(e.target.value)
+  }
+
 
   const filteredSpots = spots.filter(spot => {
     if (selectedArea === 'All') 
@@ -38,27 +43,34 @@ function App() {
   })
 
   return (
-    <div className="App">
-      <Header />
-      <Route exact path='/addspot'>
-       <AddForm 
-          addNewSpot={addNewSpot}
+    <BrowserRouter>
+      <div className="App">
+        <Header />
+          <Route exact path='/addspot'>
+        <AddForm 
+           addNewSpot={addNewSpot}
         />
-      </Route>
-      <Route exact path='/'>
-      <Filter 
-        selectedArea={selectedArea}
-        filterSelectedArea={filterSelectedArea}
-        />
-      <SpotContainer 
-        filteredSpots={filteredSpots}
-        setClickedSpot={setClickedSpot}
-        />
-      <Spot path='/spot'
-        clickedSpot={clickedSpot}
-        />
-      </Route>
-    </div>
+        
+        </Route>
+        <Switch>
+          <Route exact path='/'>
+          <Filter 
+            selectedArea={selectedArea}
+            filterSelectedArea={filterSelectedArea}
+            selectedAttribute={selectedAttribute}
+            filterSelectedAttribute={filterSelectedAttribute}
+          />
+          <SpotContainer 
+            filteredSpots={filteredSpots}
+            setClickedSpot={setClickedSpot}
+          />
+          <Spot path='/spots/id'
+            clickedSpot={clickedSpot}
+          />
+        </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
