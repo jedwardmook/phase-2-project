@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filter({selectedArea, filterSelectedArea, selectedAttribute, filterSelectedAttribute}){
+function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute}){
 
     return (
         <div id="filter">
@@ -24,25 +24,60 @@ function Filter({selectedArea, filterSelectedArea, selectedAttribute, filterSele
             </select>
             <h4 id="attribute-question">What do you want to skate? </h4>
             <div id="attribute-filter">
-                <input id="attribute-filter-check" type="checkbox" name="slappyCurb" value="slappy curb"/>Slappy Curb
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute}
+                    type="checkbox" name="anything" 
+                    value="anything"/>Anything
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="stairs" value="stairs"/>Stairs
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute}
+                    type="checkbox" name="slappyCurb" 
+                    value="slappyCurb"/>Slappy Curb
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="ledge" value="ledge"/>Ledge
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="stairs" 
+                    value="stairs"/>Stairs
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="flatGround" value="flat ground"/>Flat Ground
+                <input id="attribute-filter-check"
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="ledge" 
+                    value="ledge" />Ledge
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="gap" value="gap"/>Gap
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="flatGround" 
+                    value="flatGround"/>Flat Ground
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="flatBar" value="flat bar"/>Flat Bar
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="gap" 
+                    value="gap"/>Gap
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="manualPad" value="manual pad"/>Manual Pad
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="flatBar" 
+                    value="flatBar"/>Flat Bar
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="transition" value="transition"/>Transition
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="manualPad"
+                    value="manualPad"/>Manual Pad
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="handrail" value="handrail"/>Handrail
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="transition" 
+                    value="transition"/>Transition
                 <br/>
-                <input id="attribute-filter-check" type="checkbox" name="wallride" value="wallride"/>Wallride
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="handrail" 
+                    value="handrail"/>Handrail
+                <br/>
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttribute} 
+                    type="checkbox" name="wallride" 
+                    value="wallride"/>Wallride
                 <br/>
             </div>
         </div>

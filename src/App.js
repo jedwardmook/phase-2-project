@@ -3,14 +3,27 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import AddForm from './AddForm';
 import Filter from './Filter';
 import Header from './Header';
-import Spot from './Spot';
 import SpotContainer from './SpotContainer';
+import Spot from './Spot';
 
 function App() {
   const [spots, setSpots] = useState([])
   const [selectedArea, setSelectedArea] = useState('All')
-  const [selectedAttribute, setSelectedAttribute] = useState('Anything')
-  const [clickedSpot, setClickedSpot] = useState({})
+  const [selectedAttribute, setSelectedAttribute] = useState({
+    anything: true,
+    slappyCurb: false,
+    stairs: false,
+    ledge: false,
+    flatGround: false,
+    manualPad: false,
+    flatBar: false,
+    gap: false,
+    transition: false,
+    handrail: false,
+    wallride: false
+  })
+  const [clickedSpot, setClickedSpot] = useState({});
+  
 
 
   useEffect(() => {
@@ -31,16 +44,33 @@ function App() {
   }
 
   const filterSelectedAttribute = (e) =>{
-    setSelectedAttribute(e.target.value)
+    setSelectedAttribute({...selectedAttribute, [e.target.name]:e.target.checked})
   }
 
 
-  const filteredSpots = spots.filter(spot => {
+
+
+  const filteredSpots = spots
+    .filter(spot => {
     if (selectedArea === 'All') 
       return spots
     else
-      return spot.spotArea === selectedArea
-  })
+      return spot.spotArea === selectedArea})
+    .filter(spot => {
+      if (selectedAttribute.anything === true){
+        return spots
+      }
+      let match = false
+      for (const attribute in spot.attribute)
+      if (spot.attribute[attribute] && selectedAttribute[attribute]){
+        match = true
+      }else if (selectedAttribute[attribute] && !spot.attribute[attribute]){
+        match = false
+      }
+     return match
+    })
+
+  
 
   return (
     <BrowserRouter>
@@ -57,17 +87,22 @@ function App() {
           <Filter 
             selectedArea={selectedArea}
             filterSelectedArea={filterSelectedArea}
-            selectedAttribute={selectedAttribute}
             filterSelectedAttribute={filterSelectedAttribute}
           />
           <SpotContainer 
             filteredSpots={filteredSpots}
             setClickedSpot={setClickedSpot}
           />
-          <Spot path='/spots/id'
-            clickedSpot={clickedSpot}
-          />
         </Route>
+        <Route path={`/spots/details`}>
+                <Spot
+                    clickedSpot={clickedSpot}
+                />
+
+            </Route>
+            <Route path={'spots/:spotId'}>
+              <Spot />
+            </Route>
         </Switch>
       </div>
     </BrowserRouter>

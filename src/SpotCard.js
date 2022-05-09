@@ -1,23 +1,27 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-function SpotCard({spot, handleClickedSpot}){
+function SpotCard({spot, setClickedSpot}){
     
-    const {spotName, spotArea, spotImage, id, spotAddress, flatBar, flatGround, gap, ledge, manualPad, slappyCurb, stair, style, transition} = spot
     
+    const {spotName, spotImage} = spot
+
+
     const handleClick = (e) => {
-        handleClickedSpot(spot)
+        setClickedSpot(spot)
     }
+    
 
     return (
         <div>
             <div id="spot-card" onClick={handleClick}>
+                
                 <img src={spotImage} alt={spotName}></img>
                 <h5 id="spot-title">{spotName}</h5>
-                {/* <h6 id="spot-area">{spotArea}</h6>
-                <p> {style} </p> */}
             </div>
+            <div>
         </div>
+        </div>
+        
        )
 }
 

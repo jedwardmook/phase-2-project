@@ -1,27 +1,26 @@
 import React from "react";
+import {Link} from "react-router-dom"
 import SpotCard from "./SpotCard";
 
 
 function SpotContainer({filteredSpots, setClickedSpot}) {
-
-    const handleClickedSpot = (spot) => {
-        console.log(spot)
-        setClickedSpot(spot)
-    }
+    
 
     const spotsToDisplay = filteredSpots.map((spot,id) => {
-        return  <SpotCard
+        return  <Link to={`/spots/details`}>
+                    <SpotCard
                     spot={spot}
                     key={id}
-                    handleClickedSpot={handleClickedSpot}
-                />
+                    setClickedSpot={setClickedSpot}
+                    />
+                </Link>
     })
     
 
 
     return (
         <div id="spot-container">
-          {spotsToDisplay}
+            {spotsToDisplay}
         </div>
     )
 }
