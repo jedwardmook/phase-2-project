@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom" 
 
 function Spot({clickedSpot}){
-    const {spotName, description, spotImage, id, spotAddress, attribute} = clickedSpot
+    // const { spot, setSpot } = useState({})
+    const {spotName, description, spotImage, spotAddress, attribute, id} = clickedSpot
+    // const {spotName, description, spotImage, spotAddress, attribute} = spot
     const {flatBar, flatGround, 
         gap, ledge, manualPad, slappyCurb, stairs, handrail, wallride, transition} = attribute
     let { spotId } = useParams()
+
+    // useEffect(() => { 
+    //     fetch(`http://localhost:3000/spots/${id}`)
+    //     .then(resp => resp.json())
+    //     .then(spotData => {
+    //     setSpot(spotData)
+    //     })
+    // }, [setSpot])
 
 
     return (
