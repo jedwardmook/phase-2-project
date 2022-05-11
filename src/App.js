@@ -47,30 +47,34 @@ function App() {
     setSelectedAttribute({...selectedAttribute, [e.target.name]:e.target.checked})
   }
 
-
-
-
   const filteredSpots = spots
     .filter(spot => {
     if (selectedArea === 'All') 
       return spots
     else
-      return spot.spotArea === selectedArea})
-    .filter(spot => {
-      if (selectedAttribute.anything === true){
-        return spots
-      }
-      let match = false
-      for (const attribute in spot.attribute)
-      if (spot.attribute[attribute] && selectedAttribute[attribute]){
-        match = true
-      }else if (selectedAttribute[attribute] && !spot.attribute[attribute]){
-        match = false
-      }
-     return match
+      return spot.spotArea === selectedArea
     })
-
   
+  const evenMoreFilteredSpots = () => {
+    if (selectedAttribute.anything === true){
+      return filteredSpots
+    }else {
+      return filteredSpots.filter(spot => {
+        let match = false
+        for (const attribute in spot.attribute){
+          if (selectedAttribute[attribute] && spot.attribute[attribute]){
+            match = true
+              }else if (selectedAttribute[attribute] && !spot.attribute[attribute]){
+            match = false
+            break
+          }
+        }
+       return match
+    })
+  }
+  }
+
+
 
   return (
     <BrowserRouter>
@@ -88,21 +92,22 @@ function App() {
             selectedArea={selectedArea}
             filterSelectedArea={filterSelectedArea}
             filterSelectedAttribute={filterSelectedAttribute}
+            selectedAttribute={selectedAttribute}
           />
           <SpotContainer 
-            filteredSpots={filteredSpots}
+            filteredSpots={evenMoreFilteredSpots()}
             setClickedSpot={setClickedSpot}
           />
         </Route>
-        <Route path={`/spots/details`}>
-                <Spot
-                    clickedSpot={clickedSpot}
-                />
-
-            </Route>
-            <Route path={'spots/:spotId'}>
-              <Spot />
-            </Route>
+        <Route exact path={`/spots/details`}>
+          <Spot
+            clickedSpot={clickedSpot}
+          />
+        </Route>
+        <Route path={`/spots/:spotId`}>
+            <Spot 
+            clickedSpot={clickedSpot}/>
+        </Route>
         </Switch>
       </div>
     </BrowserRouter>

@@ -325,10 +325,10 @@
 #attributes {
   margin-top: -5px;
   color: #005A9C;
-  max-width: 300px;
+  max-width: 500px;
   columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
+  -webkit-columns: 4;
+  -moz-columns: 4;
 }
 
 #spot-button {

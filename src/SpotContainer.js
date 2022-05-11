@@ -4,10 +4,14 @@ import SpotCard from "./SpotCard";
 
 
 function SpotContainer({filteredSpots, setClickedSpot}) {
+
+    const linkStyle = {
+        textDecoration: "none"
+    }
     
 
     const spotsToDisplay = filteredSpots.map((spot,id) => {
-        return  <Link to={`/spots/details`}>
+        return  <Link to={`/spots/${spot.id}`} style={linkStyle}>
                     <SpotCard
                     spot={spot}
                     key={id}

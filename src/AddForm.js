@@ -3,61 +3,27 @@ import { useHistory } from "react-router-dom";
 
 function AddForm({addNewSpot}) {
     const history = useHistory();
-    // const [photo, setPhoto] = useState("")
-    // const [name, setName] = useState("");
-    // const [address, setAddress]= useState("");
-    // const [area, setArea]= useState("choose...");
-    // const [slappyCurb, setSlappyCurb]= useState(false);
-    // const [stairs, setStairs]= useState(false)
-    // const [ledge, setLedge]= useState(false)
-    // const [flatGround, setFlatGround]= useState(false)
-    // const [manualPad, setManualPad]= useState(false)
-    // const [flatBar, setFlatBar]= useState(false)
-    // const [gap, setGap]= useState(false)
-    // const [transition, setTransition]= useState(false)
-    // const [handrail, setHandrail]= useState(false)
-    // const [wallride, setWallride]= useState(false)
-    // const [description, setDescription] = useState('')
-    // const [style, setStyle]= useState("street")
-       const [spotData, setSpotData] = useState({
-            spotImage: '',
-            spotName: '',
-            spotAddress: '',
-            spotArea:'choose...',
-            attribute: {
-                slappyCurb: false,
-                stairs: false,
-                ledge: false,
-                flatGround: false,
-                manualPad: false,
-                flatBar: false,
-                gap: false,
-                transition: false,
-                handrail: false,
-                wallride: false,
-            },
-            description: '',
-            style: 'street',
-        })
+    const [spotData, setSpotData] = useState({
+        spotImage: '',
+        spotName: '',
+        spotAddress: '',
+        spotArea:'choose...',
+        attribute: {
+            slappyCurb: false,
+            stairs: false,
+            ledge: false,
+            flatGround: false,
+            manualPad: false,
+            flatBar: false,
+            gap: false,
+            transition: false,
+            handrail: false,
+            wallride: false,
+        },
+        description: '',
+        style: 'street',
+    })
     
-    // function handleChange(e){
-    //     const name = e.target.name;
-    //     let value = e.target.value;
-
-    //     if (e.target.type === "checkbox"){
-    //         value = e.target.checked
-    //     }
-    //     const newSpotData={
-    //         ...spotData,
-    //         [name]: value,
-    //         attribute: {
-    //             ...spotData.attribute,
-    //             [name]:value,
-    //             }
-    //         }
-    //     setSpotData(newSpotData)
-    //     console.log(newSpotData)
-    // }
 
     const handleChange = attribute => e => {
             if (!attribute) {
@@ -81,24 +47,6 @@ function AddForm({addNewSpot}) {
     function handleSubmit(e){
         e.preventDefault()
         console.log(spotData)
-    //     const newSpotObj= {
-    //         spotImage: photo,
-    //         spotName: name,
-    //         spotAddress: address,
-    //         spotArea: area,
-    //         slappyCurb: slappyCurb,
-    //         stair: stairs,
-    //         ledge: ledge,
-    //         flatGround: flatGround,
-    //         manualPad: manualPad,
-    //         flatBar: flatBar,
-    //         gap: gap,
-    //         transition: transition,
-    //         handrail: handrail,
-    //         wallride: wallride,
-    //         description: description,
-    //         style: style,
-    //     }
         fetch("http://localhost:3000/spots", {
             method: 'POST',
             headers: {
@@ -109,7 +57,7 @@ function AddForm({addNewSpot}) {
             .then((resp) => resp.json())
             .then((spotData) => {
         addNewSpot(spotData)
-        history.push("/")
+        history.push("/spots/:spotId")
         })
     }
 

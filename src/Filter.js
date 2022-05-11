@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute}){
+function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute, selectedAttribute}){
 
     return (
         <div id="filter">
@@ -24,58 +24,69 @@ function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute}){
             </select>
             <h4 id="attribute-question">What do you want to skate? </h4>
             <div id="attribute-filter">
-                <input id="attribute-filter-check" 
+            <input id="attribute-filter-check" 
                     onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.anything}
                     type="checkbox" name="anything" 
                     value="anything"/>Anything
                 <br/>
                 <input id="attribute-filter-check" 
                     onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.slappyCurb}
                     type="checkbox" name="slappyCurb" 
                     value="slappyCurb"/>Slappy Curb
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.stairs} 
                     type="checkbox" name="stairs" 
                     value="stairs"/>Stairs
                 <br/>
                 <input id="attribute-filter-check"
                     onChange={filterSelectedAttribute} 
+                    checked={selectedAttribute.ledge} 
                     type="checkbox" name="ledge" 
-                    value="ledge" />Ledge
+                    value="ledge" />Ledges
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.flatGround}  
                     type="checkbox" name="flatGround" 
                     value="flatGround"/>Flat Ground
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.gap}  
                     type="checkbox" name="gap" 
                     value="gap"/>Gap
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.flatBar}  
                     type="checkbox" name="flatBar" 
                     value="flatBar"/>Flat Bar
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.manualPad} 
                     type="checkbox" name="manualPad"
                     value="manualPad"/>Manual Pad
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.transition}  
                     type="checkbox" name="transition" 
                     value="transition"/>Transition
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.handrail}  
                     type="checkbox" name="handrail" 
                     value="handrail"/>Handrail
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute} 
+                    onChange={filterSelectedAttribute}
+                    checked={selectedAttribute.wallride}  
                     type="checkbox" name="wallride" 
                     value="wallride"/>Wallride
                 <br/>
