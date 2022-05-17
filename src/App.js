@@ -9,7 +9,7 @@ import Spot from './Spot';
 function App() {
   const [spots, setSpots] = useState([])
   const [selectedArea, setSelectedArea] = useState('All')
-  const [selectedAttribute, setSelectedAttribute] = useState({
+  const [selectedAttributes, setSelectedAttributes] = useState({
     anything: true,
     slappyCurb: false,
     stairs: false,
@@ -22,10 +22,9 @@ function App() {
     handrail: false,
     wallride: false
   })
-  const [clickedSpot, setClickedSpot] = useState({});
   
 
-
+//initial fetch to grab and set spots
   useEffect(() => {
     fetch("http://localhost:3000/spots")
     .then(resp => resp.json())
@@ -34,19 +33,21 @@ function App() {
     })
   }, [])
 
+//function passed to AddForm that adds new spot to spots
   function addNewSpot(newSpotObj){
-    console.log(newSpotObj)
     setSpots([...spots, newSpotObj])
   }
 
+//funtion passed to Filter that sets SelectedArea
   const filterSelectedArea = (e) => {
     setSelectedArea(e.target.value)
   }
-
-  const filterSelectedAttribute = (e) =>{
-    setSelectedAttribute({...selectedAttribute, [e.target.name]:e.target.checked})
+//funtion passed to Filter that sets Attributes
+  const filterSelectedAttributes = (e) =>{
+    setSelectedAttributes({...selectedAttributes, [e.target.name]:e.target.checked})
   }
 
+//initial filter that filters spots based on Area
   const filteredSpots = spots
     .filter(spot => {
     if (selectedArea === 'All') 
@@ -54,17 +55,17 @@ function App() {
     else
       return spot.spotArea === selectedArea
     })
-  
+//second filter that takes filteredSpots and filters for selected Attributes
   const evenMoreFilteredSpots = () => {
-    if (selectedAttribute.anything === true){
+    if (selectedAttributes.anything === true){
       return filteredSpots
     }else {
       return filteredSpots.filter(spot => {
         let match = false
         for (const attribute in spot.attribute){
-          if (selectedAttribute[attribute] && spot.attribute[attribute]){
+          if (selectedAttributes[attribute] && spot.attribute[attribute]){
             match = true
-              }else if (selectedAttribute[attribute] && !spot.attribute[attribute]){
+              }else if (selectedAttributes[attribute] && !spot.attribute[attribute]){
             match = false
             break
           }
@@ -79,35 +80,27 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
-          <Route exact path='/addspot'>
-        <AddForm 
-           addNewSpot={addNewSpot}
-        />
-        
-        </Route>
+        <Header /> 
         <Switch>
+          <Route exact path='/addspot'>
+            <AddForm 
+              addNewSpot={addNewSpot}
+            />
+          </Route>
           <Route exact path='/'>
-          <Filter 
-            selectedArea={selectedArea}
-            filterSelectedArea={filterSelectedArea}
-            filterSelectedAttribute={filterSelectedAttribute}
-            selectedAttribute={selectedAttribute}
-          />
-          <SpotContainer 
-            filteredSpots={evenMoreFilteredSpots()}
-            setClickedSpot={setClickedSpot}
-          />
-        </Route>
-        <Route exact path={`/spots/details`}>
-          <Spot
-            clickedSpot={clickedSpot}
-          />
-        </Route>
-        <Route path={`/spots/:spotId`}>
-            <Spot 
-            clickedSpot={clickedSpot}/>
-        </Route>
+            <Filter 
+              selectedArea={selectedArea}
+              filterSelectedArea={filterSelectedArea}
+              filterSelectedAttributes={filterSelectedAttributes}
+              selectedAttributes={selectedAttributes}
+            />
+            <SpotContainer 
+              filteredSpots={evenMoreFilteredSpots()}
+            />
+          </Route>
+          <Route exact path={`/spots/:spotId`}>
+            <Spot />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>

@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom"
 
 function Spot(){
     const [spot, setSpot] = useState(null)
+
     let spotId = useParams()
-    const displaySpot = parseInt(spotId.spotId)
+    const displaySpot = parseInt(spotId.spotId) //variable to grab id from useParams
 
-
+//fetch that sets spot based on which card is clicked
     useEffect(() => {
     fetch(`http://localhost:3000/spots/${displaySpot}`)
         .then(resp => resp.json())

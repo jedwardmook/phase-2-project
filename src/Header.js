@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Spot_Check from "./spot_check.png";
+import Spot_Check from "./images/spot_check.png";
 
 function Header() {
 
@@ -24,32 +24,32 @@ function Header() {
             <img id="header_logo" src={Spot_Check} alt="Spot Check" />
             <h1 id="header_solid"><strong>Spot Check</strong></h1><h1 id="header_outline">Chicago</h1>
             <div id="nav">
-            <NavLink
-                id="home"
-                to="/"
-                exact
-                style={linkStyles}
-                activeStyle={{
-                background: "#005A9C",
-                color: "white",
-                }}
-            >
+                <NavLink
+                    id="home"
+                    to="/"
+                    exact
+                    style={linkStyles}
+                    activeStyle={{
+                    background: "#005A9C",
+                    color: "white",
+                    }}
+                >
                 <strong>Home</strong>
-            </NavLink>
-            <NavLink
-                id="add"
-                to="/addspot"
-                exact
-                style={linkStyles}
-                activeStyle={{
-                background: "#005A9C",
-                color: "white",
-                }}
-            >
+                </NavLink>
+                <NavLink
+                    id="add"
+                    to="/addspot"
+                    exact
+                    style={linkStyles}
+                    activeStyle={{
+                    background: "#005A9C",
+                    color: "white",
+                    }}
+                >
                 <strong>Add Spot</strong>
-            </NavLink>
+                </NavLink>
             </div>
-            </div>
+        </div>
       );
 
 }

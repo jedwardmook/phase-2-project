@@ -1,6 +1,6 @@
 import React from "react";
 
-function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute, selectedAttribute}){
+function Filter({selectedArea, filterSelectedArea, filterSelectedAttributes, selectedAttributes}){
 
     return (
         <div id="filter">
@@ -22,71 +22,72 @@ function Filter({selectedArea, filterSelectedArea, filterSelectedAttribute, sele
                 <option value="Far Southwest Side">Far Southwest Side</option>
                 <option value="Far Southeast Side">Far Southeast Side</option>
             </select>
+
             <h4 id="attribute-question">What do you want to skate? </h4>
             <div id="attribute-filter">
-            <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.anything}
+                <input id="attribute-filter-check" 
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.anything}
                     type="checkbox" name="anything" 
                     value="anything"/>Anything
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.slappyCurb}
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.slappyCurb}
                     type="checkbox" name="slappyCurb" 
                     value="slappyCurb"/>Slappy Curb
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.stairs} 
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.stairs} 
                     type="checkbox" name="stairs" 
                     value="stairs"/>Stairs
                 <br/>
                 <input id="attribute-filter-check"
-                    onChange={filterSelectedAttribute} 
-                    checked={selectedAttribute.ledge} 
+                    onChange={filterSelectedAttributes} 
+                    checked={selectedAttributes.ledge} 
                     type="checkbox" name="ledge" 
                     value="ledge" />Ledges
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.flatGround}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.flatGround}  
                     type="checkbox" name="flatGround" 
                     value="flatGround"/>Flat Ground
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.gap}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.gap}  
                     type="checkbox" name="gap" 
                     value="gap"/>Gap
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.flatBar}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.flatBar}  
                     type="checkbox" name="flatBar" 
                     value="flatBar"/>Flat Bar
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.manualPad} 
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.manualPad} 
                     type="checkbox" name="manualPad"
                     value="manualPad"/>Manual Pad
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.transition}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.transition}  
                     type="checkbox" name="transition" 
                     value="transition"/>Transition
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.handrail}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.handrail}  
                     type="checkbox" name="handrail" 
                     value="handrail"/>Handrail
                 <br/>
                 <input id="attribute-filter-check" 
-                    onChange={filterSelectedAttribute}
-                    checked={selectedAttribute.wallride}  
+                    onChange={filterSelectedAttributes}
+                    checked={selectedAttributes.wallride}  
                     type="checkbox" name="wallride" 
                     value="wallride"/>Wallride
                 <br/>

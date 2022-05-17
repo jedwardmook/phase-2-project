@@ -24,7 +24,6 @@ function AddForm({addNewSpot}) {
         style: 'street',
     })
     
-
     const handleChange = attribute => e => {
             if (!attribute) {
               // Assume root level
@@ -57,12 +56,10 @@ function AddForm({addNewSpot}) {
             .then((resp) => resp.json())
             .then((spotData) => {
         addNewSpot(spotData)
-        history.push("/spots/:spotId")
+        history.push('/')
         })
     }
-
-
-
+    
     return (
         <div>
             <form id="add-form" onSubmit={handleSubmit}>
