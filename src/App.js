@@ -47,7 +47,7 @@ function App() {
     setSelectedAttributes({...selectedAttributes, [e.target.name]:e.target.checked})
   }
 
-//initial filter that filters spots based on Area
+//filter that filters spots based on Area
   const filteredSpots = spots
     .filter(spot => {
     if (selectedArea === 'All') 
@@ -55,7 +55,7 @@ function App() {
     else
       return spot.spotArea === selectedArea
     })
-//second filter that takes filteredSpots and filters for selected Attributes
+//filter that takes filteredSpots and filters for selected Attributes
   const evenMoreFilteredSpots = () => {
     if (selectedAttributes.anything === true){
       return filteredSpots
@@ -80,7 +80,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Header /> 
+        <Header/>
         <Switch>
           <Route exact path='/addspot'>
             <AddForm 

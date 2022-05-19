@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom" 
+import { useParams, Link } from "react-router-dom" 
 
 function Spot(){
     const [spot, setSpot] = useState(null)
@@ -26,8 +25,8 @@ function Spot(){
             <h6 id="description"><strong>Description:</strong> <br />{spot.description}</h6>
             <h6 id="spot-has">Spot has:</h6>
             <ul id="attributes">
-                {spot.attribute.flatBar? <li>Flat bar</li> : ''}
-                {spot.attribute.flatGround? <li>Flat ground</li> : ''}
+                {spot.attribute.flatBar && <li>Flat bar</li>}
+                {spot.attribute.flatGround && <li>Flat ground</li>}
                 {spot.attribute.gap? <li>Gap</li> : ''}
                 {spot.attribute.ledge? <li>Ledges</li> : ''}
                 {spot.attribute.manualPad? <li>Manual pad</li> : ''}

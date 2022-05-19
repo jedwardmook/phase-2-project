@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import SpotCard from "./SpotCard";
 
 
-function SpotContainer({filteredSpots, setClickedSpot}) {
+function SpotContainer({filteredSpots}) {
 
     const linkStyle = {
         textDecoration: "none"
@@ -15,16 +15,14 @@ function SpotContainer({filteredSpots, setClickedSpot}) {
                     <SpotCard
                     spot={spot}
                     key={id}
-                    setClickedSpot={setClickedSpot}
                     />
                 </Link>
     })
     
 
-
     return (
         <div id="spot-container">
-            {spotsToDisplay}
+            {spotsToDisplay.length > 0? spotsToDisplay : <h1 id="nospots">No spots to display</h1>}
         </div>
     )
 }

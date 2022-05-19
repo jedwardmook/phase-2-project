@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, } from "react-router-dom";
 
 function AddForm({addNewSpot}) {
     const history = useHistory();
@@ -24,6 +24,7 @@ function AddForm({addNewSpot}) {
         style: 'street',
     })
     
+//controls form state
     const handleChange = attribute => e => {
             if (!attribute) {
               // Assume root level
@@ -42,7 +43,7 @@ function AddForm({addNewSpot}) {
             }
     };
 
-
+//function to post to json and redirects to "home" page
     function handleSubmit(e){
         e.preventDefault()
         console.log(spotData)
