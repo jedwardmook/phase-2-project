@@ -266,6 +266,19 @@
   font-family: 'Rubik', sans-serif;
 }
 
+#nospots {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 28px;
+  color: #005A9C;
+}
+
+#nospots-p{
+  text-align: center;
+  margin-top: -5px;
+  color: #005A9C;
+}
+
 #spot-area {
   text-align: center;
   margin-top: -5px;
