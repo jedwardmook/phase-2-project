@@ -24,7 +24,7 @@ function App() {
   })
   
 
-//initial fetch to grab and set spots
+
   useEffect(() => {
     fetch("http://localhost:3000/spots")
     .then(resp => resp.json())
@@ -33,21 +33,21 @@ function App() {
     })
   }, [])
 
-//function passed to AddForm that adds new spot to spots
+
   function addNewSpot(newSpotObj){
     setSpots([...spots, newSpotObj])
   }
 
-//funtion passed to Filter that sets SelectedArea
+
   const filterSelectedArea = (e) => {
     setSelectedArea(e.target.value)
   }
-//funtion passed to Filter that sets Attributes
+
   const filterSelectedAttributes = (e) =>{
     setSelectedAttributes({...selectedAttributes, [e.target.name]:e.target.checked})
   }
 
-//filter that filters spots based on Area
+
   const filteredSpots = spots
     .filter(spot => {
     if (selectedArea === 'All') 
@@ -55,7 +55,7 @@ function App() {
     else
       return spot.spotArea === selectedArea
     })
-//filter that takes filteredSpots and filters for selected Attributes
+
   const evenMoreFilteredSpots = () => {
     if (selectedAttributes.anything === true){
       return filteredSpots
