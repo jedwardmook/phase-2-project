@@ -51,10 +51,10 @@ function AddForm({addNewSpot}) {
             },
             body: JSON.stringify(spotData)
         })
-            .then((resp) => resp.json())
-            .then((spotData) => {
-        addNewSpot(spotData)
-        history.push('/')
+        .then((resp) => resp.json())
+        .then((spotData) => {
+            addNewSpot(spotData)
+            history.push('/')
         })
     }
     

@@ -5,6 +5,7 @@ import Filter from './Filter';
 import Header from './Header';
 import SpotContainer from './SpotContainer';
 import Spot from './Spot';
+import Counter from './Counter';
 
 function App() {
   const [spots, setSpots] = useState([])
@@ -103,6 +104,9 @@ function App() {
           </Route>
           <Route exact path={`/spots/:spotId`}>
             <Spot />
+          </Route>
+          <Route path="/counter">
+            <Counter />
           </Route>
         </Switch>
       </div>

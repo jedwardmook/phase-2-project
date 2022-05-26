@@ -23,7 +23,10 @@ function SpotContainer({filteredSpots}) {
     return (
         <div id="spot-container">
             {spotsToDisplay.length > 0? 
-                spotsToDisplay : <div><h1 id="nospots">No spots to display</h1><p id="nospots-p">Select a different area/attribute</p></div>}
+                spotsToDisplay : <div>
+                                    <h1 id="nospots">No spots to display</h1>
+                                    <p id="nospots-p">Select a different area/attribute</p>
+                                 </div>}
         </div>
     )
 }
