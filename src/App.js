@@ -32,6 +32,9 @@ function App() {
       setSpots(spotData)
     })
   }, [])
+  
+
+
 
 
   function addNewSpot(newSpotObj){

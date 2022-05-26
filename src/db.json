@@ -1,0 +1,214 @@
+{
+    "spots": [
+      {
+        "spotImage": "https://assets.change.org/photos/1/sp/tf/fwSPtFhoHGQtVei-800x450-noPad.jpg?1625957469",
+        "spotName": "Logan Skatepark",
+        "spotAddress": "N. Western Ave. and Logan Blvd. Chicago, IL 60647",
+        "spotArea": "North Side",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": true,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": true,
+          "gap": false,
+          "transition": true,
+          "handrail": false,
+          "wallride": false
+        },
+        "style": "park",
+        "description": "Skatepark in Logan Square with prefab ramps. Located under an overpass. Kind of grimey with pigeon poop everywhere.",
+        "id": 1
+      },
+      {
+        "spotImage": "https://images1.cityfeet.com/i2/kaOYW7v2O0aMIZbt464x-MxCNieqrX3pBO3taeSdhx8/110/1757-n-kimball-ave-chicago-photo-5-of-18.jpg",
+        "spotName": "Slappy Curbs",
+        "spotAddress": "1757 N Kimball Ave, Chicago, IL 60647",
+        "spotArea": "North Side",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": false,
+          "ledge": false,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": false,
+          "gap": false,
+          "transition": false,
+          "handrail": false,
+          "wallride": false
+        },
+        "style": "street",
+        "description": "A couple waxed curbs located off the 606 next to the Kimball Arts Center.",
+        "id": 2
+      },
+      {
+        "spotImage": "https://cdn.businessyab.com/assets/uploads/2bd7df9c0fd72ad15b92deadce14b0c5__united_states_illinois_cook_county_chicago_douglas_burnham_skate_parkhtml.jpg",
+        "spotName": "Burnham Skatepark",
+        "spotAddress": "3400 S Lake Shore Dr, Chicago, IL 60616 ",
+        "spotArea": "Central Chicago",
+        "attribute": {
+          "slappyCurb": false,
+          "stairs": false,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": true,
+          "gap": true,
+          "transition": true,
+          "handrail": true,
+          "wallride": true
+        },
+        "style": "park",
+        "description": "First skatepark in Chicago. Located just off the lakefront trail. Cement ramps with large cracks in between sections. Fun but definitely dated.",
+        "id": 3
+      },
+      {
+        "spotImage": "https://mapio.net/images-p/41828283.jpg",
+        "spotName": "Chase Bank",
+        "spotAddress": "10 S Dearborn St, Chicago, IL 60603, USA",
+        "spotArea": "Central Chicago",
+        "attribute": {
+          "slappyCurb": false,
+          "stairs": true,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": false,
+          "flatBar": true,
+          "gap": true,
+          "transition": false,
+          "handrail": true,
+          "wallride": true
+        },
+        "style": "street",
+        "description": "One of the iconic Chicago skate spots. Plaza next to the Chase Bank Building, right off the Monroe blue line. Tons of waxed ledges, banked walls, rails, and stair set. Can get kicked out but pretty open at night.",
+        "id": 4
+      },
+      {
+        "spotImage": "https://storage.googleapis.com/fsscs1/images/large/f49286ed66268e3db3ec957938a86c97.jpg",
+        "spotName": "Mikolaj Kopernik",
+        "spotAddress": "507 E Solidarity Dr, Chicago, IL 60605, USA",
+        "spotArea": "Central Chicago",
+        "attribute": {
+          "slappyCurb": false,
+          "stairs": false,
+          "ledge": true,
+          "flatGround": false,
+          "manualPad": true,
+          "flatBar": false,
+          "gap": false,
+          "transition": false,
+          "handrail": false,
+          "wallride": false
+        },
+        "description": "Ledge and manual pad at Adler Planetarium. Prone to getting kicked out",
+        "style": "street",
+        "id": 5
+      },
+      {
+        "spotImage": "https://assets.chicagoparkdistrict.com/s3fs-public/styles/16_9_50_width/public/images/facilities/5eb7188c24cb497a885b07a5f2a617391.jpg?itok=INf_bv9A",
+        "spotName": "Wilson Skate Park",
+        "spotAddress": "Wilson and Lake Shore Drive Chicago, IL 60614",
+        "spotArea": "Far North Side",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": true,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": true,
+          "gap": false,
+          "transition": true,
+          "handrail": false,
+          "wallride": false
+        },
+        "description": "Large cement park on the north side with a lot of transition.",
+        "style": "park",
+        "id": 6
+      },
+      {
+        "spotImage": "https://fastly.4sqi.net/img/general/width960/19231912_yH5RM5YOipWP4MbqCS4BiCdpAvO1lbWcHznZqj27xAM.jpg",
+        "spotName": "Throop",
+        "spotAddress": "1811 S Throop St Chicago, IL 60608",
+        "spotArea": "West Side",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": false,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": false,
+          "gap": false,
+          "transition": false,
+          "handrail": false,
+          "wallride": false
+        },
+        "description": "Amo Gager Park. Bleacher style ledges at sharp angles. Basketball court. Get creative.",
+        "style": "street",
+        "id": 7
+      },
+      {
+        "spotImage": "https://skatethestates.com/wp-content/uploads/2021/07/La-Villita-Skatepark-in-Chicago-IL.jpg",
+        "spotName": "Prison Park",
+        "spotAddress": "2800 S Sacramento Ave, Chicago, IL 60608",
+        "spotArea": "West Side",
+        "attribute": {
+          "slappyCurb": false,
+          "stairs": true,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": true,
+          "gap": true,
+          "transition": true,
+          "handrail": true,
+          "wallride": false
+        },
+        "description": "Skatepark in Little Village, La Villita Park. Right across the street from the prison. Park has a lot. Can get crowded and is bit on a bit of an incline.",
+        "style": "park",
+        "id": 8
+      },
+      {
+        "spotImage": "https://skatethestates.com/wp-content/uploads/2021/07/Grant-Park-Skatepark-Chicago.jpg",
+        "spotName": "Grant Park",
+        "spotAddress": "1135 S Michigan Ave, Chicago, IL 60605",
+        "spotArea": "Central Chicago",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": true,
+          "ledge": true,
+          "flatGround": true,
+          "manualPad": true,
+          "flatBar": true,
+          "gap": true,
+          "transition": true,
+          "handrail": true,
+          "wallride": true
+        },
+        "description": "Very modern plaza park in downtown built in 2014. Park has basically everything minus vert, mini ramp. Not far from the Roosevelt Redline stop.",
+        "style": "park",
+        "id": 9
+      },
+      {
+        "spotImage": "https://lede-admin.blockclubchicago.org/wp-content/uploads/sites/5/2021/10/Screen-Shot-2021-10-12-at-3.27.23-PM.png?w=710",
+        "spotName": "Logan Lot",
+        "spotAddress": "2392 N Milwaukee Ave, Chicago, IL 60647",
+        "spotArea": "North Side",
+        "attribute": {
+          "slappyCurb": true,
+          "stairs": false,
+          "ledge": false,
+          "flatGround": true,
+          "manualPad": false,
+          "flatBar": true,
+          "gap": false,
+          "transition": false,
+          "handrail": false,
+          "wallride": true
+        },
+        "description": "Parking lot located to the west of Liberty Bank. A lot of flat when bank is closed with waxed parking blocks and a few guardrails.",
+        "style": "street",
+        "id": 10
+      }
+    ]
+  }

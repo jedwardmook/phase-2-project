@@ -27,14 +27,14 @@ function Spot(){
             <ul id="attributes">
                 {spot.attribute.flatBar && <li>Flat bar</li>}
                 {spot.attribute.flatGround && <li>Flat ground</li>}
-                {spot.attribute.gap? <li>Gap</li> : ''}
-                {spot.attribute.ledge? <li>Ledges</li> : ''}
-                {spot.attribute.manualPad? <li>Manual pad</li> : ''}
-                {spot.attribute.slappyCurb? <li>Slappy curb</li> : ''}
-                {spot.attribute.stairs? <li>Stairs</li> : ''}
-                {spot.attribute.transition? <li>Transition</li> : ''}
-                {spot.attribute.handrail? <li>Handrail</li> : ''}
-                {spot.attribute.wallride? <li>Wallride</li> : ''}
+                {spot.attribute.gap && <li>Gap</li>}
+                {spot.attribute.ledge && <li>Ledges</li>}
+                {spot.attribute.manualPad && <li>Manual pad</li>}
+                {spot.attribute.slappyCurb && <li>Slappy curb</li>}
+                {spot.attribute.stairs && <li>Stairs</li>}
+                {spot.attribute.transition && <li>Transition</li>}
+                {spot.attribute.handrail && <li>Handrail</li>}
+                {spot.attribute.wallride && <li>Wallride</li>}
             </ul>
             <Link to={`/`}><button id="spot-button">Back to Spots</button></Link>
        </div> : <h1>Spot loading...</h1>
